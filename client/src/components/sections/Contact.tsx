@@ -14,26 +14,9 @@ export default function Contact() {
         >
           {CONFIG.contact.email}
         </a>
-
-        <div className="mt-24 flex justify-center gap-12 flex-wrap">
-          {Object.entries(CONFIG.contact).map(([key, value]) => {
-            if (key === 'email') return null;
-            return (
-              <a 
-                key={key}
-                href={value}
-                target="_blank"
-                rel="noreferrer"
-                className="uppercase tracking-widest text-sm text-text-primary hover:text-accent transition-colors"
-              >
-                {key}
-              </a>
-            );
-          })}
-        </div>
         
         <div className="mt-32 text-text-tertiary text-sm">
-          Casablanca, Morocco
+          {CONFIG.contact.location}
         </div>
       </div>
     </section>
