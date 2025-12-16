@@ -1,0 +1,272 @@
+# FAUNA‑INSPIRED MOTION‑FIRST REACT PORTFOLIO PROMPT
+
+You are a senior creative front‑end engineer and motion designer. Create a **Fauna‑inspired, editorial, motion‑first portfolio website** using **React** with **multiple components**. The site must prioritize **cinematic motion, sliders, masking reveals, and editorial pacing**, inspired by [https://www.thefauna.co.uk/](https://www.thefauna.co.uk/) (NOT a flashy SaaS style).
+
+The output should be **production‑ready React code**, clearly structured, readable, and easy to customize.
+
+---
+
+## 1. CORE DESIGN PHILOSOPHY (VERY IMPORTANT)
+
+This website must feel:
+
+* Editorial (like a digital magazine)
+* Cinematic (video, masking, slow motion)
+* Minimal UI chrome
+* Motion‑led, not decoration‑led
+* Calm, premium, intentional
+
+❌ Avoid:
+
+* Neon glows
+* Excessive gradients
+* Gamified UI
+* Fast or bouncy animations
+
+✅ Prefer:
+
+* Mask reveals
+* Opacity fades
+* Slide & clip‑path transitions
+* Image → video hover transitions
+* Large typography + whitespace
+
+---
+
+## 2. COLOR & VISUAL SYSTEM
+
+### Color Palette
+
+* Primary background: #0b0b0b (deep black)
+* Secondary background: #111111
+* Text primary: #ffffff
+* Text secondary: rgba(255,255,255,0.7)
+* Text tertiary: rgba(255,255,255,0.45)
+* Borders: rgba(255,255,255,0.08)
+* Accent: subtle off‑white or very soft blue (ONLY on hover)
+
+### Visual Rules
+
+* Use gradients ONLY for overlays on images/videos
+* No colorful UI elements
+* Black → transparent gradient masks are allowed
+
+---
+
+## 3. TYPOGRAPHY (EDITORIAL SCALE)
+
+* Font family: system‑ui, sans‑serif
+* H1: 96px desktop / 56px mobile – font‑weight 600 – line‑height 1.05
+* H2: 64px desktop / 40px mobile
+* H3: 32px
+* Body text: 16–18px, line‑height 1.6
+* Very few font weights
+* Text should feel calm and confident
+
+---
+
+## 4. PROJECT STRUCTURE (MULTIPLE COMPONENTS)
+
+Split the app into **clear React components**:
+
+* App.jsx
+* Layout.jsx
+* Navbar.jsx
+* Hero.jsx
+* EditorialSlider.jsx (IMPORTANT)
+* About.jsx
+* Experience.jsx
+* ProjectsSlider.jsx (IMPORTANT)
+* Contact.jsx
+* Footer.jsx
+* useScrollProgress.js
+* useIntersectionReveal.js
+
+---
+
+## 5. NAVIGATION (MINIMAL & EDITORIAL)
+
+Navbar behavior:
+
+* Fixed position
+* Transparent background
+* Appears on scroll (fade‑in)
+* Hamburger menu on mobile
+* Menu opens as a **full‑screen overlay**
+
+Menu animation:
+
+* Menu panel slides from bottom
+* Links fade in with stagger (120ms delay)
+* Background stays black
+
+---
+
+## 6. HERO SECTION (FAUNA‑STYLE INTRO)
+
+Hero is **full viewport**.
+
+Content:
+
+* Large editorial headline
+* One short subtitle line
+* No buttons initially
+
+Animation:
+
+* On load: text reveals via **clip‑path mask**
+* Opacity fade + translateY (slow)
+* Optional background video or image
+
+Scroll behavior:
+
+* Scroll indicator (minimal line or arrow)
+
+---
+
+## 7. EDITORIAL SLIDER (CORE FAUNA INTERACTION)
+
+### Component: EditorialSlider.jsx
+
+This slider is inspired directly by Fauna’s motion language.
+
+Slider rules:
+
+* Full‑width
+* One slide visible at a time
+* Horizontal movement
+* Slides transition smoothly
+
+Each slide contains:
+
+* Image or video
+* Title
+* Short description
+
+### SLIDE TRANSITION (VERY IMPORTANT)
+
+When navigating slides:
+
+* Current slide masks out (clip‑path or scale X)
+* Next slide masks in
+* Duration: 700–900ms
+* Ease: ease‑in‑out
+
+NO bounce, NO spring.
+
+### Hover Interaction (Desktop)
+
+* Image fades into video preview
+* Black gradient overlay appears
+* Title opacity increases
+
+---
+
+## 8. PROJECTS SECTION (VIDEO‑FIRST)
+
+### Component: ProjectsSlider.jsx
+
+* Horizontal slider
+* Drag or arrow navigation
+* Large thumbnails
+
+Hover behavior:
+
+* Static image → autoplay muted video
+* Overlay with project title + category
+* Cursor stays default (no fancy cursor)
+
+Entrance animation:
+
+* Section slides in from bottom
+* Child items stagger 120ms
+
+---
+
+## 9. SCROLL & REVEAL ANIMATIONS
+
+### Intersection Observer
+
+Trigger animations when 15% visible:
+
+Initial state:
+
+* opacity: 0
+* transform: translateY(40px)
+
+Animated state:
+
+* opacity: 1
+* transform: translateY(0)
+* duration: 800–1000ms
+
+---
+
+## 10. CONFIGURATION OBJECT (CONTENT ONLY)
+
+Create a single editable CONFIG object:
+
+```js
+const CONFIG = {
+  name: "Your Name",
+  role: "Your Role",
+  intro: "Short editorial intro",
+
+  projects: [
+    {
+      id: 1,
+      title: "Project Title",
+      description: "Short editorial description",
+      image: "image.jpg",
+      video: "preview.mp4",
+      category: "Category"
+    }
+  ],
+
+  experience: [
+    {
+      company: "Company",
+      role: "Role",
+      period: "Year – Year",
+      description: "Editorial description"
+    }
+  ],
+
+  contact: {
+    email: "email@example.com",
+    linkedin: "URL",
+    github: "URL"
+  }
+}
+```
+
+---
+
+## 11. ANIMATION TECH
+
+* Use CSS transitions + transform
+* Optional: Framer Motion ONLY for masking
+* Prefer clip‑path, opacity, translate
+* All animations GPU‑friendly
+
+---
+
+## 12. PERFORMANCE & ACCESSIBILITY
+
+* Lazy load images & videos
+* Muted autoplay videos only on hover
+* Semantic HTML
+* Keyboard navigation
+* Reduced motion support
+
+---
+
+## 13. FINAL OUTPUT REQUIREMENTS
+
+* Multiple React components
+* Clean readable code
+* Comments explaining motion logic
+* No unnecessary libraries
+* Editorial, Fauna‑inspired feel
+
+The final result must feel like a **creative studio website**, not a developer portfolio.
