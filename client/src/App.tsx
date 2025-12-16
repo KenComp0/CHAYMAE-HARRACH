@@ -1,29 +1,23 @@
-import { Switch, Route } from "wouter";
-import { queryClient } from "./lib/queryClient";
-import { QueryClientProvider } from "@tanstack/react-query";
+import Layout from "@/components/layout/Layout";
+import Hero from "@/components/sections/Hero";
+import EditorialSlider from "@/components/sections/EditorialSlider";
+import ProjectsSlider from "@/components/sections/ProjectsSlider";
+import About from "@/components/sections/About";
+import Experience from "@/components/sections/Experience";
+import Contact from "@/components/sections/Contact";
 import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/not-found";
-
-function Router() {
-  return (
-    <Switch>
-      {/* Add pages below */}
-      {/* <Route path="/" component={Home}/> */}
-      {/* Fallback to 404 */}
-      <Route component={NotFound} />
-    </Switch>
-  );
-}
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Router />
-      </TooltipProvider>
-    </QueryClientProvider>
+    <Layout>
+      <Hero />
+      <EditorialSlider />
+      <About />
+      <ProjectsSlider />
+      <Experience />
+      <Contact />
+      <Toaster />
+    </Layout>
   );
 }
 
