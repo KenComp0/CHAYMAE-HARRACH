@@ -2,10 +2,12 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { CONFIG } from "@/config";
+import { useTranslation } from "@/contexts/TranslationContext";
 
 export default function EditorialSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const slides = CONFIG.editorial;
+  const { t } = useTranslation();
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % slides.length);
@@ -19,7 +21,7 @@ export default function EditorialSlider() {
     <section className="w-full py-24 md:py-32 px-6 md:px-12 border-t border-white/5 bg-background" id="work">
       <div className="max-w-[1600px] mx-auto">
         <div className="flex justify-between items-end mb-12">
-          <h2 className="text-4xl md:text-6xl font-medium tracking-tight text-text-primary">Methodology</h2>
+          <h2 className="text-4xl md:text-6xl font-medium tracking-tight text-text-primary">{t("methodology.title")}</h2>
           
           <div className="flex gap-4">
             <button 
@@ -65,8 +67,12 @@ export default function EditorialSlider() {
                     transition={{ delay: 0.5, duration: 0.8 }}
                   >
                     <span className="text-sm font-mono text-accent mb-4 block">0{currentIndex + 1} / 0{slides.length}</span>
-                    <h3 className="text-3xl md:text-5xl font-medium mb-2 text-text-primary">{slides[currentIndex].title}</h3>
-                    <p className="text-text-secondary max-w-xl text-lg">{slides[currentIndex].description}</p>
+                    <h3 className="text-3xl md:text-5xl font-medium mb-2 text-text-primary">
+                      {t(`editorial.${slides[currentIndex].id === 1 ? 'capital' : slides[currentIndex].id === 2 ? 'psychology' : 'culture'}.title`)}
+                    </h3>
+                    <p className="text-text-secondary max-w-xl text-lg">
+                      {t(`editorial.${slides[currentIndex].id === 1 ? 'capital' : slides[currentIndex].id === 2 ? 'psychology' : 'culture'}.description`)}
+                    </p>
                   </motion.div>
                 </div>
               </div>

@@ -1,11 +1,13 @@
 import { useIntersectionReveal } from "@/hooks/use-intersection-reveal";
 import { CONFIG } from "@/config";
+import { useTranslation } from "@/contexts/TranslationContext";
 
 export default function Education() {
+  const { t } = useTranslation();
   return (
     <section className="w-full py-32 px-6 md:px-12 bg-background-secondary border-t border-white/5" id="education">
       <div className="max-w-[1200px] mx-auto">
-        <h2 className="text-4xl md:text-6xl font-medium tracking-tight mb-20 text-text-primary">Education</h2>
+        <h2 className="text-4xl md:text-6xl font-medium tracking-tight mb-20 text-text-primary">{t("education.title")}</h2>
         
         <div className="space-y-16">
           {CONFIG.education.map((edu, index) => (

@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import LanguageToggle from "@/components/ui/LanguageToggle";
+import { useTranslation } from "@/contexts/TranslationContext";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,13 +49,16 @@ export default function Navbar() {
           CHAYMAE HARRACH
         </div>
 
-        <button 
-          onClick={() => setIsOpen(!isOpen)}
-          className="z-50 text-text-primary focus:outline-none hover:text-accent transition-colors"
-          data-testid="button-menu"
-        >
-          {isOpen ? <X size={32} strokeWidth={1.5} /> : <Menu size={32} strokeWidth={1.5} />}
-        </button>
+        <div className="flex items-center gap-4">
+          <LanguageToggle />
+          <button 
+            onClick={() => setIsOpen(!isOpen)}
+            className="z-50 text-text-primary focus:outline-none hover:text-accent transition-colors"
+            data-testid="button-menu"
+          >
+            {isOpen ? <X size={32} strokeWidth={1.5} /> : <Menu size={32} strokeWidth={1.5} />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -65,19 +71,25 @@ export default function Navbar() {
             className="fixed inset-0 bg-background z-40 flex flex-col justify-center items-center"
           >
             <div className="flex flex-col gap-8 text-center">
-              {["About", "Experience", "Education", "Work", "Contact"].map((item, i) => (
+              {[
+                { key: "about", href: "about" },
+                { key: "experience", href: "experience" },
+                { key: "education", href: "education" },
+                { key: "work", href: "work" },
+                { key: "contact", href: "contact" }
+              ].map((item, i) => (
                 <motion.div
-                  key={item}
+                  key={item.key}
                   custom={i}
                   variants={linkVariants}
                 >
                   <a 
-                    href={`#${item.toLowerCase()}`}
+                    href={`#${item.href}`}
                     onClick={() => setIsOpen(false)}
                     className="text-5xl md:text-7xl font-light text-text-primary hover:text-accent transition-colors block"
-                    data-testid={`link-menu-${item.toLowerCase()}`}
+                    data-testid={`link-menu-${item.href}`}
                   >
-                    {item}
+                    {t(`nav.${item.key}`)}
                   </a>
                 </motion.div>
               ))}

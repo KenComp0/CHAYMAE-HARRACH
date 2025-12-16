@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { CONFIG } from "@/config";
+import { useTranslation } from "@/contexts/TranslationContext";
 
 export default function Hero() {
+  const { t } = useTranslation();
   return (
     <section className="h-screen w-full flex flex-col justify-center px-6 md:px-12 relative overflow-hidden bg-background">
       {/* Background Graphic - Large abstract circle/blob inspired by screenshot */}
@@ -20,7 +22,7 @@ export default function Hero() {
             transition={{ duration: 1.2, ease: [0.65, 0, 0.35, 1], delay: 0.2 }}
             className="text-[13vw] leading-[0.85] font-bold tracking-tighter text-text-primary"
           >
-            STRATEGIC
+            {t("hero.title1")}
           </motion.h1>
         </div>
         
@@ -31,7 +33,7 @@ export default function Hero() {
             transition={{ duration: 1.2, ease: [0.65, 0, 0.35, 1], delay: 0.35 }}
             className="text-[13vw] leading-[0.85] font-bold tracking-tighter ml-[5vw] text-text-primary"
           >
-            HUMAN
+            {t("hero.title2")}
           </motion.h1>
         </div>
 
@@ -42,7 +44,7 @@ export default function Hero() {
             transition={{ duration: 1.2, ease: [0.65, 0, 0.35, 1], delay: 0.5 }}
             className="text-[13vw] leading-[0.85] font-bold tracking-tighter ml-[15vw] text-transparent bg-clip-text bg-gradient-to-r from-text-primary to-text-secondary"
           >
-            RESOURCES
+            {t("hero.title3")}
           </motion.h1>
         </div>
 
@@ -67,7 +69,7 @@ export default function Hero() {
         transition={{ delay: 2, duration: 1 }}
         className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
       >
-        <span className="text-xs uppercase tracking-widest text-text-tertiary">Scroll</span>
+        <span className="text-xs uppercase tracking-widest text-text-tertiary">{t("hero.scroll")}</span>
         <div className="h-16 w-[1px] bg-white/10">
           <motion.div 
             animate={{ height: ["0%", "100%"] }}

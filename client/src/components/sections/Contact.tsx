@@ -1,11 +1,13 @@
 import { CONFIG } from "@/config";
+import { useTranslation } from "@/contexts/TranslationContext";
 
 export default function Contact() {
+  const { t } = useTranslation();
   return (
     <section className="w-full py-40 px-6 md:px-12 bg-background text-center" id="contact">
       <div className="max-w-[1200px] mx-auto">
         <h2 className="text-[10vw] font-bold leading-none mb-12 tracking-tighter text-text-primary uppercase">
-          Let's Connect
+          {t("contact.title")}
         </h2>
         
         <a 
