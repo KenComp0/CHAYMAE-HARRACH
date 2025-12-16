@@ -39,16 +39,16 @@ export default function Navbar() {
     <>
       <nav 
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 flex justify-between items-center px-6 md:px-12 py-6 ${
-          isScrolled ? "bg-background/80 backdrop-blur-md" : "bg-transparent"
+          isScrolled ? "bg-background/90 backdrop-blur-md shadow-sm" : "bg-transparent"
         }`}
       >
-        <div className="text-xl font-medium tracking-tight z-50 mix-blend-difference text-white">
-          ALEX MORGAN
+        <div className="text-xl font-medium tracking-tight z-50 text-text-primary">
+          CHAYMAE HARRACH
         </div>
 
         <button 
           onClick={() => setIsOpen(!isOpen)}
-          className="z-50 text-white mix-blend-difference focus:outline-none"
+          className="z-50 text-text-primary focus:outline-none hover:text-accent transition-colors"
           data-testid="button-menu"
         >
           {isOpen ? <X size={32} strokeWidth={1.5} /> : <Menu size={32} strokeWidth={1.5} />}
@@ -65,7 +65,7 @@ export default function Navbar() {
             className="fixed inset-0 bg-background z-40 flex flex-col justify-center items-center"
           >
             <div className="flex flex-col gap-8 text-center">
-              {["Work", "About", "Experience", "Contact"].map((item, i) => (
+              {["About", "Experience", "Education", "Work", "Contact"].map((item, i) => (
                 <motion.div
                   key={item}
                   custom={i}
@@ -74,7 +74,7 @@ export default function Navbar() {
                   <a 
                     href={`#${item.toLowerCase()}`}
                     onClick={() => setIsOpen(false)}
-                    className="text-5xl md:text-7xl font-light hover:text-white/50 transition-colors block"
+                    className="text-5xl md:text-7xl font-light text-text-primary hover:text-accent transition-colors block"
                     data-testid={`link-menu-${item.toLowerCase()}`}
                   >
                     {item}

@@ -3,16 +3,21 @@
 @theme {
   --font-sans: "Inter", system-ui, sans-serif;
   
-  /* Color Palette - Fauna Inspired */
-  --color-background: #0b0b0b;
-  --color-background-secondary: #111111;
+  /* Color Palette - Fauna Red/Orange Inspired */
+  /* Deep Burgundy Background */
+  --color-background: #2A0A0A; 
+  /* Slightly lighter burgundy for contrast sections */
+  --color-background-secondary: #3D0E0E;
   
-  --color-text-primary: #ffffff;
-  --color-text-secondary: rgba(255, 255, 255, 0.7);
-  --color-text-tertiary: rgba(255, 255, 255, 0.45);
+  /* Text Colors - Cream/Beige */
+  --color-text-primary: #F9F1E7;
+  --color-text-secondary: rgba(249, 241, 231, 0.7);
+  --color-text-tertiary: rgba(249, 241, 231, 0.45);
   
-  --color-border-subtle: rgba(255, 255, 255, 0.08);
-  --color-accent: #f0f0f0; /* Off-white accent */
+  --color-border-subtle: rgba(249, 241, 231, 0.1);
+  
+  /* Vibrant Orange Accent */
+  --color-accent: #FF4D00; 
 
   /* Animation Durations */
   --duration-slow: 1000ms;
@@ -39,25 +44,28 @@
     padding: 0;
   }
 
-  /* Typography Scale */
+  /* Typography Scale - Bold & Compact */
   h1 {
-    font-size: clamp(56px, 8vw, 96px);
-    font-weight: 600;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
+    font-size: clamp(56px, 9vw, 110px);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
   }
 
   h2 {
-    font-size: clamp(40px, 5vw, 64px);
-    font-weight: 500;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 600;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
   }
 
   h3 {
     font-size: 32px;
-    font-weight: 400;
-    line-height: 1.2;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
   }
 
   p {
@@ -88,12 +96,12 @@
   }
   
   ::-webkit-scrollbar-thumb {
-    background: var(--color-border-subtle);
+    background: var(--color-accent);
     border-radius: 3px;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-text-tertiary);
+    background: #FF6A00;
   }
 }
 
